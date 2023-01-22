@@ -1,10 +1,10 @@
 {
-  "id": "breadcrumbs",
-  "name": "Breadcrumbs",
-  "version": "3.6.4",
+  "id": "breadcrumbs-dcao",
+  "name": "breadcrumbs +dcao",
+  "version": "3.7.0",
   "minAppVersion": "0.15.2",
   "description": "Visualise & navigate your vault's structure",
-  "author": "SkepticMystic",
-  "authorUrl": "https://github.com/SkepticMystic/breadcrumbs",
+  "author": "dcao",
+  "authorUrl": "https://github.com/dcao/breadcrumbs",
   "isDesktopOnly": false
 }

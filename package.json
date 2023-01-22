@@ -1,6 +1,6 @@
 {
   "name": "breadcrumbs-plugin",
-  "version": "3.6.4",
+  "version": "3.7.0",
   "description": "Visualise & navigate your vault's structure",
   "main": "main.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "t": ""
   },
   "keywords": [],
-  "author": "SkepticMystic",
+  "author": "dcao",
   "license": "MIT",
   "devDependencies": {
     "@types/csv2json": "^1.4.2",
