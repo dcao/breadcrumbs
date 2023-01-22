@@ -288,9 +288,9 @@ export async function buildMainG(plugin: BCPlugin): Promise<MultiGraph> {
     db.start2G("Dendron Notes");
     addDendronNotesToGraph(plugin, frontms, mainG);
     db.end2G();
-    // db.start2G("Folder Hierarchy Notes");
-    // addFolderHierarchyNotesToGraph(plugin, frontms, mainG);
-    // db.end2G();
+    db.start2G("Folder Hierarchy Notes");
+    addFolderHierarchyNotesToGraph(plugin, frontms, mainG);
+    db.end2G();
     db.start2G("Dataview Notes");
     addDataviewNotesToGraph(plugin, eligableAlts[BC_DV_NOTE], frontms, mainG);
     db.end2G();

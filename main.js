@@ -11514,6 +11514,36 @@ function addDataviewNotesToGraph(plugin, eligableAlts, frontms, mainG) {
   });
 }
 
+// src/AlternativeHierarchies/FolderHierarchy.ts
+var getParent = (dendron) => {
+  let parent = dendron.split("/").slice(0, -1).join("/");
+  if (parent === "") {
+    return "";
+  } else {
+    return parent + ".md";
+  }
+};
+function addFolderHierarchyNotesToGraph(plugin, frontms, mainG) {
+  const { settings } = plugin;
+  const { addFolderHierarchyNotes, folderHierarchyNoteField } = settings;
+  if (!addFolderHierarchyNotes)
+    return;
+  for (const frontm of frontms) {
+    if (frontm[BC_IGNORE_DENDRON] || frontm[BC_IGNORE])
+      continue;
+    let curr = frontm.file.path;
+    let parent = getParent(curr);
+    while (parent !== "") {
+      const parentFile = frontms.find((fm) => fm.file.path === parent);
+      if (!parentFile || parentFile[BC_IGNORE_DENDRON] !== true) {
+        populateMain(settings, mainG, curr, folderHierarchyNoteField, parent, 9999, 9999, true);
+      }
+      curr = parent;
+      parent = getParent(parent);
+    }
+  }
+}
+
 // node_modules/luxon/src/errors.js
 var LuxonError = class extends Error {
 };
@@ -17888,6 +17918,9 @@ async function buildMainG(plugin) {
     db.end2G();
     db.start2G("Dendron Notes");
     addDendronNotesToGraph(plugin, frontms, mainG);
+    db.end2G();
+    db.start2G("Folder Hierarchy Notes");
+    addFolderHierarchyNotesToGraph(plugin, frontms, mainG);
     db.end2G();
     db.start2G("Dataview Notes");
     addDataviewNotesToGraph(plugin, eligableAlts[BC_DV_NOTE], frontms, mainG);

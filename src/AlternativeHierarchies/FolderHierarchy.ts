@@ -7,11 +7,14 @@ import {
 } from "../Utils/graphUtils";
 
 const getParent = (dendron: string) => {
-  let parent_maybe_ext = dendron.split("/").slice(0, -1).join("/");
-  let parent_no_ext = parent_maybe_ext.substring(0, parent_maybe_ext.lastIndexOf(".") + 1);
-  let parent = parent_no_ext + ".md";
-
-  return parent
+  let parent = dendron.split("/").slice(0, -1).join("/");
+  // If it's empty, no parent
+  // Otherwise, return path + ".md"
+  if (parent === "") {
+    return "";
+  } else {
+    return parent + ".md";
+  }
 }
 
 export function addFolderHierarchyNotesToGraph(
