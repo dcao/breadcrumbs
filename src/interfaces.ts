@@ -18,6 +18,7 @@ import type TreeView from "./Views/TreeView";
 export type DebugLevel = keyof LogLevel;
 export interface BCSettings {
   addDendronNotes: boolean;
+  addFolderHierarchyNotes: boolean;
   addDateNotes: boolean;
   aliasesInIndex: boolean;
   alphaSortAsc: boolean;
@@ -38,6 +39,7 @@ export interface BCSettings {
   enableRelationSuggestor: boolean;
   fieldSuggestor: boolean;
   filterImpliedSiblingsOfDifferentTypes: boolean;
+  folderHierarchyNoteField: string;
   gridDefaultDepth: number;
   hierarchyNotes: string[];
   hierarchyNoteIsParent: boolean;

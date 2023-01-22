@@ -8,6 +8,7 @@ import { addDataviewSettings } from "./DataviewNoteSettings";
 import { addDateNoteSettings } from "./DateNoteSettings";
 import { addDebuggingsSettings } from "./DebuggingSettings";
 import { addDendronSettings } from "./DendronSettings";
+import { addFolderHierarchySettings } from "./FolderHierarchySettings";
 import { addGeneralSettings } from "./GeneralSettings";
 import { addHierarchyNoteSettings } from "./HierarchyNoteSettings";
 import { addHierarchySettings } from "./HierarchySettings";
@@ -117,6 +118,7 @@ export class BCSettingTab extends PluginSettingTab {
     addDendronSettings(plugin, alternativeHierarchyDetails);
     addDataviewSettings(plugin, alternativeHierarchyDetails);
     addDateNoteSettings(plugin, alternativeHierarchyDetails);
+    addFolderHierarchySettings(plugin, alternativeHierarchyDetails);
 
     const cmdsDetails = details("Commands", containerEl);
     addWriteBCsSettings(plugin, cmdsDetails);

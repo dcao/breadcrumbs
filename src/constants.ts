@@ -324,6 +324,7 @@ export const API_NAME = "BCAPI";
 
 export const DEFAULT_SETTINGS: BCSettings = {
   addDendronNotes: false,
+  addFolderHierarchyNotes: false,
   addDateNotes: false,
   aliasesInIndex: false,
   alphaSortAsc: true,
@@ -344,6 +345,7 @@ export const DEFAULT_SETTINGS: BCSettings = {
   enableRelationSuggestor: false,
   fieldSuggestor: true,
   filterImpliedSiblingsOfDifferentTypes: false,
+  folderHierarchyNoteField: "up",
   jugglLayout: "hierarchy",
   limitWriteBCCheckboxes: [],
   CHECKBOX_STATES_OVERWRITTEN: false,

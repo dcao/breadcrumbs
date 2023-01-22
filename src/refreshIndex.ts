@@ -3,6 +3,7 @@ import { debug, error } from "loglevel";
 import { normalizePath, Notice, Pos, TFile, TFolder } from "obsidian";
 import { addCSVCrumbs, getCSVRows } from "./AlternativeHierarchies/CSVCrumbs";
 import { addDataviewNotesToGraph } from "./AlternativeHierarchies/DataviewNotes";
+import { addFolderHierarchyNotesToGraph } from "./AlternativeHierarchies/FolderHierarchy";
 import { addDateNotesToGraph } from "./AlternativeHierarchies/DateNotes";
 import { addDendronNotesToGraph } from "./AlternativeHierarchies/DendronNotes";
 import { addFolderNotesToGraph } from "./AlternativeHierarchies/FolderNotes";
@@ -287,6 +288,9 @@ export async function buildMainG(plugin: BCPlugin): Promise<MultiGraph> {
     db.start2G("Dendron Notes");
     addDendronNotesToGraph(plugin, frontms, mainG);
     db.end2G();
+    // db.start2G("Folder Hierarchy Notes");
+    // addFolderHierarchyNotesToGraph(plugin, frontms, mainG);
+    // db.end2G();
     db.start2G("Dataview Notes");
     addDataviewNotesToGraph(plugin, eligableAlts[BC_DV_NOTE], frontms, mainG);
     db.end2G();
